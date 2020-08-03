@@ -1,0 +1,43 @@
+<h2>REGISTRO</h2>
+
+<form>
+    <div class="form-group">
+        <label for="key">ID GERADO AUTOMATICAMENTE</label>
+        <input type="string" class="form-control" id="key" name="key" readonly
+                placeholder="Digite o ID"
+                [(ngModel)]="cliente.key">
+    </div>  
+    <div class="form-group">
+        <label for="nome">NOME DO CLIENTE</label>
+        <input type="string" class="form-control" id="nome" name="nome"
+                placeholder="Digite seu nome"
+                [(ngModel)]="cliente.nome">
+    </div>    
+    <div class="form-group">
+        <label for="dataNascimento">DATA DE LANÇAMENTO</label>
+        <input type="Date" class="form-control" id="dataNascimento" name="dataNascimento"
+        [(ngModel)]="cliente.dataNascimento">
+    </div>
+    <button class="btn btn-primary" (click)="salvar()">Salvar</button> 
+</form>`
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID DO CLIENTE</th>    
+            <th>NOME DO CLIENTE</th>    
+            <th>DATA DE NASCIMENTO</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente.key }}</td>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.dataNascimento }}</td>
+            <td><button class="btn btn-primary"
+                (click)="carregar(cliente)">Alterar</button></td>
+            <td><button class="btn btn-primary"
+                (click)="excluir(cliente.key)">Excluir</button></td>
+        </tr>
+    </tbody>
+</table>

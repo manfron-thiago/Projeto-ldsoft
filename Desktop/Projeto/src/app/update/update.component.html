@@ -1,0 +1,43 @@
+<h2>UPDATES</h2>
+
+<form>
+    <div class="form-group">
+        <label for="id">ID DO PRODUTO</label>
+        <input type="String" class="form-control" id="key" name="key" readonly
+                placeholder="Digite o ID"
+                [(ngModel)]="update.key">
+    </div>  
+    <div class="form-group">
+        <label for="nome">NOME</label>
+        <input type="String" class="form-control" id="nome" name="nome"
+                placeholder="Digite seu nome"
+                [(ngModel)]="update.nome">
+    </div>    
+    <div class="form-group">
+        <label for="dataNascimento">DATA DE FABRICAÇÃO</label>
+        <input type="Date" class="form-control" id="dataNascimento" name="dataNascimento"
+        [(ngModel)]="update.dataNascimento">
+    </div>
+    <button class="btn btn-primary" (click)="salvar()">Salvar</button> 
+</form>`
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID DO PRODUTO</th>    
+            <th>NOME</th>    
+            <th>DATA DE FABRICAÇÃO</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let update of updates">
+            <td>{{ update.key }}</td>
+            <td>{{ update.nome }}</td>
+            <td>{{ update.dataNascimento }}</td>
+            <td><button class="btn btn-primary"
+                (click)="carregar(update)">Alterar</button></td>
+            <td><button class="btn btn-primary"
+                (click)="excluir(update.key)">Excluir</button></td>
+        </tr>
+    </tbody>
+</table>
